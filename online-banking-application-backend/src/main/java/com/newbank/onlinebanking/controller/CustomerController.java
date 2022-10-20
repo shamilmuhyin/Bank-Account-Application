@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.newbank.onlinebanking.requestEntity.CustomerRequestEntity;
-import com.newbank.onlinebanking.responseEntity.CustomerResponseEntity;
+import com.newbank.onlinebanking.requestEntity.CustomerRequest;
+import com.newbank.onlinebanking.responseEntity.CustomerResponse;
 import com.newbank.onlinebanking.service.CustomerService;
 
 @RestController 
@@ -18,8 +18,8 @@ public class CustomerController {
 	CustomerService customerService;
 	
 	@PostMapping(path = "/registerCustomer")
-	public CustomerResponseEntity registerCustomer(@RequestBody CustomerRequestEntity cReqEntity) {
-		CustomerResponseEntity cResEntity = new CustomerResponseEntity();
+	public CustomerResponse registerCustomer(@RequestBody CustomerRequest cReqEntity) {
+		CustomerResponse cResEntity = new CustomerResponse();
 		cResEntity = customerService.registerCustomer(cReqEntity);
 		return cResEntity;
 	}

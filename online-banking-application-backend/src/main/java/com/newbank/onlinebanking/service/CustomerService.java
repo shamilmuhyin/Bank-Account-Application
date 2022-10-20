@@ -1,8 +1,8 @@
 package com.newbank.onlinebanking.service;
 
-import com.newbank.onlinebanking.requestEntity.CustomerRequestEntity;
-import com.newbank.onlinebanking.responseEntity.CustomerResponseEntity;
+import com.newbank.onlinebanking.requestEntity.CustomerRequest;
+import com.newbank.onlinebanking.responseEntity.CustomerResponse;
 
 public interface CustomerService {
-	public CustomerResponseEntity registerCustomer(CustomerRequestEntity cReqEntity);
+	public CustomerResponse registerCustomer(CustomerRequest cReqEntity);
 }
