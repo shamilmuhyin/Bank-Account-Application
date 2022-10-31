@@ -11,5 +11,5 @@ public class AddressResponse {
 	public String city;
 	public String state;
 	public int pincode;
-	public CustomerResponse customer;
+	public CustomerResponse customerId;
 }

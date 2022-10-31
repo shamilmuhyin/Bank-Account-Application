@@ -19,6 +19,7 @@ public class CustomerController {
 	
 	@PostMapping(path = "/registerCustomer")
 	public CustomerResponse registerCustomer(@RequestBody CustomerRequest cReqEntity) {
+		//if customer already exist throw exception
 		CustomerResponse cResEntity = new CustomerResponse();
 		cResEntity = customerService.registerCustomer(cReqEntity);
 		return cResEntity;
