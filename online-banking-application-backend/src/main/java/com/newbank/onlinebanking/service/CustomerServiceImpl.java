@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.newbank.onlinebanking.customException.UserExistsException;
 import com.newbank.onlinebanking.entity.Address;
 import com.newbank.onlinebanking.entity.Customer;
 import com.newbank.onlinebanking.repository.CustomerRepository;
@@ -25,9 +26,16 @@ public class CustomerServiceImpl implements CustomerService {
 
 	@Override
 	public CustomerResponse registerCustomer(CustomerRequest cReqEntity) {
-		Customer customer = setEntityProperties(cReqEntity);
-		customer = customerRepo.save(customer);
-		CustomerResponse cResEntity = setResponseProperties(customer);;
+		CustomerResponse cResEntity = new CustomerResponse();
+		Customer customer = customerRepo.findByEmailId(cReqEntity.getEmailId());
+		if(customer == null) {
+			customer = setEntityProperties(cReqEntity);
+			customer = customerRepo.save(customer);
+			cResEntity = setResponseProperties(customer);	
+		} 
+		else {
+			throw new UserExistsException("Email exist, please login");
+		}
 		return cResEntity;
 	}
 

@@ -1,6 +1,7 @@
 package com.newbank.onlinebanking.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,12 +16,16 @@ import com.newbank.onlinebanking.service.CustomerService;
 public class CustomerController {
 	
 	@Autowired
-	CustomerService customerService;
+	private CustomerService customerService;
+	
+	@Autowired
+	private BCryptPasswordEncoder passwordEncoder;
 	
 	@PostMapping(path = "/registerCustomer")
 	public CustomerResponse registerCustomer(@RequestBody CustomerRequest cReqEntity) {
-		//if customer already exist throw exception
 		CustomerResponse cResEntity = new CustomerResponse();
+		String encodedPassword = passwordEncoder.encode(cReqEntity.getPassword());
+		cReqEntity.setPassword(encodedPassword);
 		cResEntity = customerService.registerCustomer(cReqEntity);
 		return cResEntity;
 	}
