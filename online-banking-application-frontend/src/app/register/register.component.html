@@ -11,38 +11,56 @@
         <div class="col border border-danger">
             <div class="card my-2 bg-light">
                 <div class="card-body">
-                    <form>
+                    <form (ngSubmit)="customerRegister()">
                         <h2 class="mb-3 text-center">Register customer</h2>
                         <div class="row">
                             <div class="col mb-3">
                                 <label for="firstname" class="form-label">First name</label>
-                                <input type="text" class="form-control" id="firstname" aria-describedby="firstname" placeholder="Enter your first name">
+                                <input type="text" class="form-control" id="firstname" placeholder="Enter your first name" name="firstName" [(ngModel)]="customer.firstName">
                             </div>
                             <div class="col mb-3">
                                 <label for="secondname" class="form-label">Last name</label>
-                                <input type="text" class="form-control" id="secondname" aria-describedby="secondnamename" placeholder="Enter your last name">
+                                <input type="text" class="form-control" id="secondname" placeholder="Enter your last name" name="lastName" [(ngModel)]="customer.lastName">
                             </div>
                         </div>
                         <div class="mb-3">
                             <label for="InputDob" class="form-label">Date of birth</label>
-                            <input type="date" class="form-control">
+                            <input type="date" class="form-control" name="dob" [(ngModel)]="customer.dob">
                         </div> 
                         <div class="mb-3">
                             <label for="mobileNumber" class="form-label">Mobile number</label>
-                            <input type="text" class="form-control" id="mobileNumber" aria-describedby="mobileNumber" placeholder="Enter your mobile number">
+                            <input type="text" class="form-control" id="mobileNumber" placeholder="Enter your mobile number" name="mobileNumber" [(ngModel)]="customer.mobileNumber">
+                        </div>
+                        <div class="mb-3">
+                            <label for="addressLine" class="form-label">Address line</label>
+                            <input type="text" class="form-control" id="addressLine" placeholder="Enter your house number, locality" name="addressLine" [(ngModel)]="customer.addressLine">
+                        </div>
+                        <div class="row">
+                            <div class="col mb-3">
+                                <label for="city" class="form-label">city</label>
+                                <input type="text" class="form-control" id="city" placeholder="Enter your City" name="city" [(ngModel)]="customer.city">
+                            </div>
+                            <div class="col mb-3">
+                                <label for="state" class="form-label">State</label>
+                                <input type="text" class="form-control" id="state" placeholder="Enter your State" name="state" [(ngModel)]="customer.state">
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="pincode" class="form-label">Pincode</label>
+                            <input type="number" class="form-control" id="Pincode" placeholder="Enter your Pincode" name="pincode" [(ngModel)]="customer.pincode">
                         </div>
                         <div class="mb-3">
                             <label for="InputEmail" class="form-label">Email address</label>
-                            <input type="email" class="form-control" id="InputEmail" aria-describedby="emailHelp" placeholder="Enter your email address">
+                            <input type="email" class="form-control" id="InputEmail" placeholder="Enter your email address" name="emailId" [(ngModel)]="customer.emailId">
                             <div id="emailHelp" class="form-text">your email id is safe with us.</div>
                         </div>
                         <div class="mb-3">
                             <label for="InputPassword" class="form-label">Password</label>
-                            <input type="password" class="form-control" id="Password" aria-describedby="password" placeholder="Enter your password">
+                            <input type="password" class="form-control" id="Password" placeholder="Enter your password" name="password" [(ngModel)]="customer.password">
                         </div>
                         <div class="mb-3">
                             <label for="InputPassword" class="form-label">Confirm password</label>
-                            <input type="password" class="form-control" id="cPassword" aria-describedby="password" placeholder="Enter your password">
+                            <input type="password" class="form-control" id="cPassword" placeholder="Enter your password" name="cPassword" [(ngModel)]="customer.cPassword">
                         </div>
                         <div class="row">
                             <div class="col">

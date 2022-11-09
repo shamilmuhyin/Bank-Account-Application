@@ -19,7 +19,7 @@ import com.newbank.onlinebanking.responseEntity.CustomerResponse;
 
 @Component
 @Transactional
-public class CustomerServiceImpl implements CustomerService {
+public class ManagerServiceImpl implements ManagerService {
 
 	@Autowired
 	CustomerRepository customerRepo;
