@@ -29,6 +29,7 @@ public class ManagerController {
 		
 		return true;
 	}
+	
 	@PostMapping(path = "/registerCustomer")
 	public CustomerResponse registerCustomer(@RequestBody CustomerRequest cReqEntity) {
 		CustomerResponse cResEntity = new CustomerResponse();

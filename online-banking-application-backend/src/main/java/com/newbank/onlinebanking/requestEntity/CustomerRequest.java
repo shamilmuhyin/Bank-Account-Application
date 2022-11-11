@@ -20,6 +20,7 @@ public class CustomerRequest {
 	public String emailId;
 	public String password;	
 	public Manager managerId;
+	
 	List<AddressRequest> addresses = new ArrayList<AddressRequest>();
 	public int getCustomerId() {
 		return customerId;

@@ -33,11 +33,12 @@ public class Customer {
 	
 	@ManyToOne
 	@JoinColumn(name="managerId", referencedColumnName = "managerId")
-	
 	Manager managerId;
+	
 	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name = "customerId", referencedColumnName = "customerId")
 	List<Address> addresses;
+	
 	public int getCustomerId() {
 		return customerId;
 	}

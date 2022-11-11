@@ -13,10 +13,12 @@ import javax.persistence.OneToMany;
 public class Manager {
 
 	@Id
-	int managerId;
-	String firstName;
-	String lastName;
-	String branchName;
+	public int managerId;
+	public String firstName;
+	public String lastName;
+	public String branchName;
+	public String emailId;
+	public String password;
 	
 	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name="managerId", referencedColumnName="managerId")
